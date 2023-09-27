@@ -1,20 +1,36 @@
-# Leap year
+class Student:
 
-"""
-year % 4 == 0 &
-year % 100 !=0 /
-year % 400 == 0
+  def __init__(self, name, roll_number, cgpa):
+    self.name = name
+    self.roll_number = roll_number
+    self.cgpa = cgpa
+  
 
-"""
-def isLeapYear(year):
-  if (year % 4== 0 and year % 100 != 0) or year % 400 ==0:
-    return True
-  else:
-    return False
+def sort_students(student_list):
 
-year=2012
+    sorted_students = sorted(student_list,
+                            key=lambda student: student. cgpa,
+                            reverse=True)
+    
+    return sorted_students
+    
+     
+    
+    
 
-if isLeapYear(year):
-  print("{} is a leap Year.".format(year))
-else:
-  print("{} is not a leap year.". format(year))
+
+students = [
+      Student("lavanya", "ST12", 2.7),
+      Student("ramya", "ST13", 2.5),
+      Student("keerthi", "ST14", 1.7),
+      Student("shalini", "ST15", 1.3),
+      Student("vinisha", "ST16", 1.5)
+]
+
+sorted_students = sort_students(students)
+
+
+for student in sorted_students:
+   print("Name: {}, Roll Number: {}, CGPA: {}".format(student.name,
+student.roll_number,                                            
+                                                      student.cgpa))
